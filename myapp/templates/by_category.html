@@ -1,0 +1,177 @@
+{% extends 'header.html' %}
+{% load static %}
+{% block content %}
+		<!-- BREADCRUMB -->
+		<div id="breadcrumb" class="section">
+			<!-- container -->
+			<div class="container">
+				<!-- row -->
+				<div class="row">
+					<div class="col-md-12">
+						<ul class="breadcrumb-tree">
+							<li><a href="#">Home</a></li>
+							<li><a href="#">All Categories</a></li>
+			
+						</ul>
+					</div>
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+		</div>
+		<!-- /BREADCRUMB -->
+
+		<!-- SECTION -->
+		<div class="section">
+			<!-- container -->
+			<div class="container">
+				<!-- row -->
+				<div class="row">
+					<!-- ASIDE -->
+					<div id="aside" class="col-md-3">
+						<!-- aside Widget -->
+						<div class="aside">
+							<h3 class="aside-title">Categories</h3>
+							<div class="checkbox-filter">
+
+								<div class="input-checkbox">
+									<input type="checkbox" id="category-1">
+									<label for="category-1">
+										<span></span>
+										Laptops
+										<small>(120)</small>
+									</label>
+								</div>
+
+								<div class="input-checkbox">
+									<input type="checkbox" id="category-2">
+									<label for="category-2">
+										<span></span>
+										Smartphones
+										<small>(740)</small>
+									</label>
+								</div>
+
+								<div class="input-checkbox">
+									<input type="checkbox" id="category-3">
+									<label for="category-3">
+										<span></span>
+										Cameras
+										<small>(1450)</small>
+									</label>
+								</div>
+
+								<div class="input-checkbox">
+									<input type="checkbox" id="category-4">
+									<label for="category-4">
+										<span></span>
+										Accessories
+										<small>(578)</small>
+									</label>
+								</div>
+
+								
+							</div>
+						</div>
+						<!-- /aside Widget -->
+
+						
+						
+					</div>
+					<!-- /ASIDE -->
+
+ 					<!-- STORE -->
+					<div id="store" class="col-md-9">
+						<!-- store top filter -->
+						<div class="store-filter clearfix">
+							<div class="store-sort">
+								<label>
+									Sort By:
+									<select class="input-select">
+										<option value="0">Popular</option>
+										<option value="1">Position</option>
+									</select>
+								</label>
+
+								<label>
+									Show:
+									<select class="input-select">
+										<option value="0">20</option>
+										<option value="1">50</option>
+									</select>
+								</label>
+							</div>
+			 				<ul class="store-grid">
+								<li class="active"><i class="fa fa-th"></i></li>
+								<li><a href="#"><i class="fa fa-th-list"></i></a></li>
+							</ul>
+						</div>						
+						
+						<!-- /store top filter -->
+						<div class="row">
+						{% for i in products %}
+						<!-- store products -->
+						
+							<!-- product -->
+							<div class="col-md-4 col-xs-6">
+								<div class="product">
+									<div class="product-img">
+										<img src="{{i.product_image.url}}" style="height:250px; width:250px;" alt="">
+										<div class="product-label">
+											<span class="sale">-30%</span>
+											<span class="new">NEW</span>
+										</div>
+									</div>
+									<div class="product-body">
+										<p class="product-category">{{i.product_catgory}}</p>
+										<h3 class="product-name"><a href="#">{{i.product_name}}</a></h3>
+										<h4 class="product-price">RS. {{i.product_price}}</h4>
+										<div class="product-rating">
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+										</div>
+										<div class="product-btns">
+											
+											<a href="{% url 'product_details' pk=i.pk %}">
+											
+												<button class="btn btn-primary">Quick View</span></button>
+										</div>
+									</div>
+									
+								</div>
+							</div>
+							<!-- /product -->
+							
+						{% endfor %}
+													
+							<!-- /product -->
+						</div>
+						<!-- /store products -->
+						<!-- store bottom filter -->
+						<div class="store-filter clearfix">
+							<span class="store-qty">Showing 20-100 products</span>
+							<ul class="store-pagination">
+								<li class="active">1</li>
+								<li><a href="#">2</a></li>
+								<li><a href="#">3</a></li>
+								<li><a href="#">4</a></li>
+								<li><a href="#"><i class="fa fa-angle-right"></i></a></li>
+							</ul>
+						</div>
+						<!-- /store bottom filter -->
+					</div>
+					<!-- /STORE -->
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+		</div>
+		<!-- /SECTION -->
+
+		
+	</body>
+</html>
+{% endblock %}
